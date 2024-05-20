@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <h3 class="mt-5">Expenses</h3>
+    {% for expense in expenses %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow mb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">{{expense.expensename}}</div>
+                        <div class="col-md-12">{{expense.amount}}</div>
+                        <div class="col-md-12">{{expense.date}}</div>
+                        <div class="col-md-12">
+                            <span class="badge badge-primary">{{expense.category}}</span>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="updateexpense/{{expense.id}}" class="btn btn-sm btn-success">edit</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="delete/{{expense.id}}" class="btn btn-sm btn-danger">delete</a>
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="mt-5">Expense breakdown</h3>
+
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-boy">
+                    <div class="row">
+                        <div class="col-md-6">food</div>
+                        <div class="col-md-6">{{t_food}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-boy">
+                    <div class="row">
+                        <div class="col-md-6">entertainment</div>
+                        <div class="col-md-6">{{t_entertainment}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-boy">
+                    <div class="row">
+                        <div class="col-md-6">business</div>
+                        <div class="col-md-6">{{t_business}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-boy">
+                    <div class="row">
+                        <div class="col-md-6">other</div>
+                        <div class="col-md-6">{{t_other}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-boy">
+                    <div class="row">
+                        <div class="col-md-6">total</div>
+                        <div class="col-md-6">{{total}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
